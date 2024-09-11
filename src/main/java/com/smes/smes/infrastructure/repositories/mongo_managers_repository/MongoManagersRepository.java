@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.UUID;
 
 import com.smes.smes.domain.entities.Manager;
+import com.smes.smes.domain.exceptions.ManagerNotFoundException;
 import com.smes.smes.domain.repositories.ManagersRepository;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 
 public class MongoManagersRepository implements ManagersRepository {
@@ -32,7 +36,12 @@ public class MongoManagersRepository implements ManagersRepository {
     }
 
     @Override
-    public void remove(UUID managerId) throws Exception {
+    public void update(Manager manager) throws ManagerNotFoundException {
+        this.springManagersRepository.save(this.adapt(manager));
+    }
+
+    @Override
+    public void remove(UUID managerId) throws ManagerNotFoundException {
         this.springManagersRepository.deleteById(managerId.toString());
     }
 

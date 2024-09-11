@@ -3,6 +3,7 @@ package com.smes.smes.configs;
 
 import com.smes.smes.domain.usecases.CreateManagerUseCase;
 import com.smes.smes.domain.usecases.RemoveManagerUseCase;
+import com.smes.smes.domain.usecases.UpdateManagerUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,6 +27,11 @@ public class SmesApplicationConfiguration {
     @Bean
     public CreateManagerUseCase createManagerUseCase() {
         return new CreateManagerUseCase(this.managersRepository());
+    }
+
+    @Bean
+    public UpdateManagerUseCase updateManagerUseCase() {
+        return new UpdateManagerUseCase(this.managersRepository());
     }
 
     @Bean

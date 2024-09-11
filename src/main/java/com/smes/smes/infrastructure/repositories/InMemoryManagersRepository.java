@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
+import com.smes.smes.domain.exceptions.ManagerNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.smes.smes.domain.entities.Manager;
@@ -30,10 +32,19 @@ public class InMemoryManagersRepository implements ManagersRepository {
     }
 
     @Override
-    public void remove(UUID managerId) throws Exception {
+    public void update(Manager updatedManager) throws ManagerNotFoundException {
+        int managerIndex = IntStream.range(0, this.managers.size())
+                .filter(i -> this.managers.get(i).id.equals(updatedManager.id))
+                .findFirst()
+                .orElseThrow(() -> new ManagerNotFoundException(updatedManager.id));
+        this.managers.set(managerIndex, updatedManager);
+    }
+
+    @Override
+    public void remove(UUID managerId) throws ManagerNotFoundException {
         Manager managerToRemove = this.managers.stream()
                 .filter(x -> x.id.equals(managerId))
-                .findFirst().orElseThrow(() -> new Exception("Manager not found"));
+                .findFirst().orElseThrow(() -> new ManagerNotFoundException(managerId));
         this.managers.remove(managerToRemove);
     }
 }
