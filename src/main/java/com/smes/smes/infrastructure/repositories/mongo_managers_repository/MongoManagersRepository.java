@@ -31,6 +31,11 @@ public class MongoManagersRepository implements ManagersRepository {
         this.springManagersRepository.insert(this.springManagersRepository.insert(this.adapt(manager)));
     }
 
+    @Override
+    public void remove(UUID managerId) throws Exception {
+        this.springManagersRepository.deleteById(managerId.toString());
+    }
+
     private ManagerDatabaseEntity adapt(Manager manager) {
         return new ManagerDatabaseEntity(
                 manager.id,

@@ -9,4 +9,6 @@ public interface ManagersRepository {
     public List<Manager> find();
 
     public void create(Manager manager);
+
+    public void remove(UUID managerId) throws Exception;
 }
