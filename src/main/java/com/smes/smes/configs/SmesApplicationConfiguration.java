@@ -1,15 +1,15 @@
 package com.smes.smes.configs;
 
 
-import com.smes.smes.domain.usecases.CreateManagerUseCase;
-import com.smes.smes.domain.usecases.RemoveManagerUseCase;
-import com.smes.smes.domain.usecases.UpdateManagerUseCase;
+import com.smes.smes.application.usecases.CreateManagerUseCase;
+import com.smes.smes.application.usecases.RemoveManagerUseCase;
+import com.smes.smes.application.usecases.UpdateManagerUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.smes.smes.domain.repositories.ManagersRepository;
-import com.smes.smes.domain.usecases.FindManagersUseCase;
-import com.smes.smes.infrastructure.repositories.InMemoryManagersRepository;
+import com.smes.smes.application.usecases.FindManagersUseCase;
+import com.smes.smes.adapters.out.persistance.repositories.InMemoryManagersRepository;
 
 @Configuration
 public class SmesApplicationConfiguration {
