@@ -1,6 +1,7 @@
 package com.smes.smes.adapters.in.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smes.smes.AbstractBaseIntegrationTest;
 import com.smes.smes.adapters.in.controllers.create_manager_controller.CreateManagerControllerBodyDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class RemoveManagerControllerAcceptanceTest {
+public class RemoveManagerControllerAcceptanceTest  extends AbstractBaseIntegrationTest {
 
     private static ObjectMapper mapper = new ObjectMapper();
 

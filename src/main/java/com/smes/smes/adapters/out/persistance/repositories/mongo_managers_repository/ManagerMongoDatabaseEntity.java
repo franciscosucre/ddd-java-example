@@ -7,9 +7,9 @@ import java.util.UUID;
 
 
 @Document
-public class ManagerDatabaseEntity {
+public class ManagerMongoDatabaseEntity {
 
-    public ManagerDatabaseEntity(UUID id, String name, String email) {
+    public ManagerMongoDatabaseEntity(UUID id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;

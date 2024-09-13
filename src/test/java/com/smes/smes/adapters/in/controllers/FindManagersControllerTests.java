@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.smes.smes.AbstractBaseIntegrationTest;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import com.smes.smes.domain.entities.Manager;
 import com.smes.smes.application.usecases.FindManagersUseCase;
 
 @SpringBootTest
-class FindManagersControllerTests {
+class FindManagersControllerTests  extends AbstractBaseIntegrationTest {
 
   @MockBean
   FindManagersUseCase findManagersUseCase;

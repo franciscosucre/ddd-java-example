@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.smes.smes.AbstractBaseIntegrationTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -17,7 +18,7 @@ import com.smes.smes.domain.entities.Manager;
 import com.smes.smes.domain.repositories.ManagersRepository;
 
 @SpringBootTest
-class FindManagersUseCaseTests {
+class FindManagersUseCaseTests  extends AbstractBaseIntegrationTest {
 
   @BeforeAll
     public static void beforeAll() {

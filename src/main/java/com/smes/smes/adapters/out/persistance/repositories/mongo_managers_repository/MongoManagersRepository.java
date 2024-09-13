@@ -10,21 +10,21 @@ import com.smes.smes.domain.repositories.ManagersRepository;
 
 
 public class MongoManagersRepository implements ManagersRepository {
-    private final SpringManagerRepository springManagersRepository;
+    private final SpringMongoManagerRepository springManagersRepository;
 
-    public MongoManagersRepository(SpringManagerRepository springManagersRepository) {
+    public MongoManagersRepository(SpringMongoManagerRepository springManagersRepository) {
         this.springManagersRepository = springManagersRepository;
     }
 
     @Override
     public List<Manager> find() {
-        List<ManagerDatabaseEntity> dtos = this.springManagersRepository.findAll();
+        List<ManagerMongoDatabaseEntity> dtos = this.springManagersRepository.findAll();
         return this.restoreAll(dtos);
     }
 
     @Override
     public void create(Manager manager) {
-        ManagerDatabaseEntity databaseManager = new ManagerDatabaseEntity(
+        ManagerMongoDatabaseEntity databaseManager = new ManagerMongoDatabaseEntity(
                 manager.id,
                 manager.name,
                 manager.email
@@ -42,21 +42,21 @@ public class MongoManagersRepository implements ManagersRepository {
         this.springManagersRepository.deleteById(managerId.toString());
     }
 
-    private ManagerDatabaseEntity adapt(Manager manager) {
-        return new ManagerDatabaseEntity(
+    private ManagerMongoDatabaseEntity adapt(Manager manager) {
+        return new ManagerMongoDatabaseEntity(
                 manager.id,
                 manager.name,
                 manager.email
         );
     }
 
-    private Manager restore(ManagerDatabaseEntity dto) {
+    private Manager restore(ManagerMongoDatabaseEntity dto) {
         return new Manager(dto.id, dto.name, dto.email);
     }
 
-    private List<Manager> restoreAll(List<ManagerDatabaseEntity> dtos) {
+    private List<Manager> restoreAll(List<ManagerMongoDatabaseEntity> dtos) {
         ArrayList<Manager> managers = new ArrayList<>(dtos.size());
-        for (ManagerDatabaseEntity dto : dtos) {
+        for (ManagerMongoDatabaseEntity dto : dtos) {
             managers.add(this.restore(dto));
         }
         return managers;

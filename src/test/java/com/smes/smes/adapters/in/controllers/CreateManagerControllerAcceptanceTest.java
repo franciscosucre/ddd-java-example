@@ -1,6 +1,7 @@
 package com.smes.smes.adapters.in.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smes.smes.AbstractBaseIntegrationTest;
 import com.smes.smes.adapters.in.controllers.create_manager_controller.CreateManagerControllerBodyDto;
 import org.assertj.core.internal.Arrays;
 import org.hamcrest.CoreMatchers;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CreateManagerControllerAcceptanceTest {
+public class CreateManagerControllerAcceptanceTest  extends AbstractBaseIntegrationTest {
 
     private static ObjectMapper mapper = new ObjectMapper();
 
