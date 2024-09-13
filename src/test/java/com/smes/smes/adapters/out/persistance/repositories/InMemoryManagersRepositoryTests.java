@@ -17,16 +17,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.smes.smes.domain.entities.Manager;
 
-@SpringBootTest
-class InMemoryManagersRepositoryTests extends AbstractBaseIntegrationTest {
+class InMemoryManagersRepositoryTests  {
 
-    @Autowired
-    ManagersRepository managersRepository;
+    InMemoryManagersRepository inMemoryManagersRepository = new InMemoryManagersRepository();
 
 
     @Test
     void shouldReturnAllManagers() {
-        List<Manager> managers = this.managersRepository.find();
+        List<Manager> managers = this.inMemoryManagersRepository.find();
         assertEquals(3, managers.spliterator().getExactSizeIfKnown());
     }
 
