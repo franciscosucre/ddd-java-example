@@ -1,11 +1,12 @@
 package com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
 
-
+@Document
 public class ManagerDatabaseEntity {
 
     public ManagerDatabaseEntity(UUID id, String name, String email) {
