@@ -1,13 +1,11 @@
 package com.smes.smes.adapters.in.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smes.smes.AbstractBaseIntegrationTest;
-import com.smes.smes.adapters.in.controllers.create_manager_controller.CreateManagerControllerBodyDto;
+import com.smes.smes.helpers.test_types.AbstractBaseIntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;

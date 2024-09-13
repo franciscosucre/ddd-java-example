@@ -1,7 +1,7 @@
 package com.smes.smes.adapters.in.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smes.smes.AbstractBaseIntegrationTest;
+import com.smes.smes.helpers.test_types.AbstractBaseIntegrationTest;
 import com.smes.smes.adapters.in.controllers.update_manager_controller.UpdateManagerControllerBodyDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

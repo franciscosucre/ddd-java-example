@@ -1,8 +1,8 @@
-package com.smes.smes;
+package com.smes.smes.helpers.containers;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 
-public abstract class DatabaseContainer {
+public abstract class AbstractDatabaseContainer {
 
     public static void containersProperties(DynamicPropertyRegistry registry) {
     }

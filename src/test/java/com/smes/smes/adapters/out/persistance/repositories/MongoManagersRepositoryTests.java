@@ -1,6 +1,6 @@
 package com.smes.smes.adapters.out.persistance.repositories;
 
-import com.smes.smes.AbstractBaseIntegrationTest;
+import com.smes.smes.helpers.test_types.AbstractBaseIntegrationTest;
 import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository.ManagerMongoDatabaseEntity;
 import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository.MongoManagersRepository;
 import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository.SpringMongoManagerRepository;

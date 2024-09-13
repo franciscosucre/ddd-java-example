@@ -1,10 +1,10 @@
-package com.smes.smes;
+package com.smes.smes.helpers.containers;
 
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.testcontainers.containers.MongoDBContainer;
 
-public class MongoDbSingletonContainer extends DatabaseContainer {
+public class MongoDbSingletonContainer extends AbstractDatabaseContainer {
     @ServiceConnection
     protected static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0");
 

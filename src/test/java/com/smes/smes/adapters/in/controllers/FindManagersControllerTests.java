@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.smes.smes.AbstractBaseIntegrationTest;
+import com.smes.smes.helpers.test_types.AbstractBaseIntegrationTest;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,8 @@
 package com.smes.smes.adapters.in.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smes.smes.AbstractBaseIntegrationTest;
+import com.smes.smes.helpers.test_types.AbstractBaseIntegrationTest;
 import com.smes.smes.adapters.in.controllers.create_manager_controller.CreateManagerControllerBodyDto;
-import org.assertj.core.internal.Arrays;
-import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -15,9 +13,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import java.sql.DriverManager;
-import java.util.ArrayList;
 
 @SpringBootTest
 @AutoConfigureMockMvc

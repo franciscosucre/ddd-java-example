@@ -1,4 +1,4 @@
-package com.smes.smes;
+package com.smes.smes.helpers.containers;
 
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -6,7 +6,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-public class PostgresSingletonContainer extends DatabaseContainer {
+public class PostgresSingletonContainer extends AbstractDatabaseContainer {
     @ServiceConnection
     public static final PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:16-alpine"));
 
