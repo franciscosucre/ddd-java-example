@@ -14,15 +14,7 @@ import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-@SpringBootTest(classes = SmesApplicationConfiguration.class)
-@Transactional
 public abstract class AbstractBaseIntegrationTest {
-
-    @Autowired
-    MongoTemplate mongoTemplate;
-
-    @Autowired
-    EntityManager entityManager;
 
     @ServiceConnection
     public static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0");

@@ -6,18 +6,30 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.smes.smes.AbstractBaseIntegrationTest;
+import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository.MongoManagersRepository;
 import com.smes.smes.adapters.out.persistance.repositories.postgres_managers_repository.ManagerPostgresDatabaseEntity;
 import com.smes.smes.adapters.out.persistance.repositories.postgres_managers_repository.PostgresManagersRepository;
 import com.smes.smes.adapters.out.persistance.repositories.postgres_managers_repository.SpringPostgresManagerRepository;
 import org.junit.jupiter.api.Test;
 
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.smes.smes.domain.entities.Manager;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+@Transactional
+@ExtendWith(SpringExtension.class)
+@Import(PostgresManagersRepository.class)
 class PostgresManagersRepositoryTests extends AbstractBaseIntegrationTest {
 
     @Autowired

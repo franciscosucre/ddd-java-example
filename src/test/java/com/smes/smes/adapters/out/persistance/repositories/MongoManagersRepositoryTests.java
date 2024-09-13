@@ -6,15 +6,20 @@ import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_reposi
 import com.smes.smes.adapters.out.persistance.repositories.mongo_managers_repository.SpringMongoManagerRepository;
 import com.smes.smes.domain.entities.Manager;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@DataMongoTest
+@ExtendWith(SpringExtension.class)
+@Import(MongoManagersRepository.class)
 class MongoManagersRepositoryTests extends AbstractBaseIntegrationTest {
 
     @Autowired
