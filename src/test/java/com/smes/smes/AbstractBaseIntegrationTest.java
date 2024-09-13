@@ -1,6 +1,7 @@
 package com.smes.smes;
 
 import com.smes.smes.configs.SmesApplicationConfiguration;
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.AfterEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,20 +9,25 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.transaction.annotation.Transactional;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest(classes = SmesApplicationConfiguration.class)
+@Transactional
 public abstract class AbstractBaseIntegrationTest {
 
     @Autowired
     MongoTemplate mongoTemplate;
 
+    @Autowired
+    EntityManager entityManager;
+
     @ServiceConnection
-    public static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0").withReuse(true);
+    public static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:6.0");
     @ServiceConnection
-    public static final PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:16-alpine")).withReuse(true);
+    public static final PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:16-alpine"));
 
     @DynamicPropertySource
     static void containersProperties(DynamicPropertyRegistry registry) {
@@ -41,10 +47,6 @@ public abstract class AbstractBaseIntegrationTest {
         postgreSQLContainer.start();
     }
 
-    @AfterEach()
-    public void afterEach(){
-        mongoTemplate.getDb().drop();
-    }
 
 
 }
